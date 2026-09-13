@@ -1,0 +1,19 @@
+{
+  "evidence_id": "EV-SEC-2026-09-13",
+  "source": "Simulated Intune / Defender / Azure network export",
+  "collected_at": "2026-09-13T16:05:00-04:00",
+  "policy": {
+    "require_endpoint_encryption": true,
+    "require_endpoint_protection": true,
+    "forbidden_public_inbound_ports": [22, 3389]
+  },
+  "devices": [
+    {"device_name": "FRDC-ENG-001", "in_scope": true, "disk_encrypted": true, "endpoint_protection_enabled": true},
+    {"device_name": "FRDC-ENG-017", "in_scope": true, "disk_encrypted": true, "endpoint_protection_enabled": true},
+    {"device_name": "FRDC-PM-004", "in_scope": true, "disk_encrypted": true, "endpoint_protection_enabled": true}
+  ],
+  "network_rules": [
+    {"resource": "nsg-cui-app", "direction": "Inbound", "source": "10.20.0.0/16", "destination_port": 443, "action": "Allow"},
+    {"resource": "nsg-cui-admin", "direction": "Inbound", "source": "0.0.0.0/0", "destination_port": 3389, "action": "Allow"}
+  ]
+}
