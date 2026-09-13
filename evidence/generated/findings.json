@@ -1,0 +1,62 @@
+[
+  {
+    "check_id": "authorized_account_status",
+    "status": "FAIL",
+    "cmmc": "AC.L2-3.1.1",
+    "nist_800_171_rev2": "3.1.1",
+    "title": "Authorized system access",
+    "severity": "high",
+    "evidence_id": "EV-ID-2026-09-13",
+    "evidence_source": "Simulated Microsoft Entra ID export",
+    "rationale": "1 enabled account(s) are associated with non-active personnel.",
+    "affected_objects": [
+      "former.contractor@frdc.example"
+    ],
+    "remediation": "Disable or formally reauthorize the accounts, validate the identity lifecycle process, and preserve closure evidence."
+  },
+  {
+    "check_id": "privileged_least_privilege",
+    "status": "FAIL",
+    "cmmc": "AC.L2-3.1.5",
+    "nist_800_171_rev2": "3.1.5",
+    "title": "Least privilege for privileged access",
+    "severity": "high",
+    "evidence_id": "EV-ID-2026-09-13",
+    "evidence_source": "Simulated Microsoft Entra ID export",
+    "rationale": "1 privileged assignment(s) exceeded the fictional 30-day inactivity threshold.",
+    "affected_objects": [
+      "stale.admin@frdc.example"
+    ],
+    "remediation": "Review business need, remove unnecessary standing privilege, and document approval for any retained privileged access."
+  },
+  {
+    "check_id": "privileged_mfa",
+    "status": "FAIL",
+    "cmmc": "IA.L2-3.5.3",
+    "nist_800_171_rev2": "3.5.3",
+    "title": "Multifactor authentication",
+    "severity": "critical",
+    "evidence_id": "EV-ID-2026-09-13",
+    "evidence_source": "Simulated Microsoft Entra ID export",
+    "rationale": "1 enabled privileged account(s) lack MFA registration evidence.",
+    "affected_objects": [
+      "daniel.ross@frdc.example"
+    ],
+    "remediation": "Require MFA for the affected privileged accounts and verify enforcement through Conditional Access or equivalent controls."
+  },
+  {
+    "check_id": "audit_logging_retention",
+    "status": "FAIL",
+    "cmmc": "AU.L2-3.3.1",
+    "nist_800_171_rev2": "3.3.1",
+    "title": "System auditing",
+    "severity": "high",
+    "evidence_id": "EV-AU-2026-09-13",
+    "evidence_source": "Simulated Azure / Sentinel logging export",
+    "rationale": "One or more required logging sources do not meet the fictional organization's defined logging/retention policy.",
+    "affected_objects": [
+      "DefenderAlerts: retention 30d < policy 90d"
+    ],
+    "remediation": "Enable the required log sources and align configured retention with the organization's approved audit-retention policy."
+  }
+]
