@@ -17,9 +17,10 @@ def load_json(path: Path):
 def main() -> None:
     identity = load_json(ROOT / "data/sample/identity_evidence.json")
     audit = load_json(ROOT / "data/sample/audit_evidence.json")
+    security = load_json(ROOT / "data/sample/security_evidence.json")
     mappings = load_json(ROOT / "mappings/control_map.json")
 
-    findings = evaluate(identity, audit, mappings)
+    findings = evaluate(identity, audit, security, mappings)
     rows = [f.to_dict() for f in findings]
 
     evidence_dir = ROOT / "evidence/generated"
