@@ -1,0 +1,14 @@
+{
+  "evidence_id": "EV-AU-2026-09-13",
+  "source": "Simulated Azure / Sentinel logging export",
+  "collected_at": "2026-09-13T15:46:00-04:00",
+  "policy": {
+    "required_log_sources": ["EntraSignIn", "AzureActivity", "DefenderAlerts"],
+    "defined_retention_days": 90
+  },
+  "log_sources": [
+    {"name": "EntraSignIn", "enabled": true, "retention_days": 90},
+    {"name": "AzureActivity", "enabled": true, "retention_days": 90},
+    {"name": "DefenderAlerts", "enabled": true, "retention_days": 30}
+  ]
+}
