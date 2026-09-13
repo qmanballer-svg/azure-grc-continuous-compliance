@@ -22,5 +22,23 @@
     "nist_800_171_rev2": "3.3.1",
     "title": "System auditing",
     "severity": "high"
+  },
+  "endpoint_encryption": {
+    "cmmc": "SC.L2-3.13.16",
+    "nist_800_171_rev2": "3.13.16",
+    "title": "CUI confidentiality at rest - endpoint encryption signal",
+    "severity": "critical"
+  },
+  "endpoint_protection": {
+    "cmmc": "SI.L2-3.14.2",
+    "nist_800_171_rev2": "3.14.2",
+    "title": "Malicious code protection - endpoint protection signal",
+    "severity": "high"
+  },
+  "public_admin_exposure": {
+    "cmmc": "SC.L2-3.13.1",
+    "nist_800_171_rev2": "3.13.1",
+    "title": "Boundary protection - public administrative exposure signal",
+    "severity": "critical"
   }
 }
