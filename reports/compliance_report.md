@@ -4,9 +4,9 @@
 
 ## Executive snapshot
 
-- Checks evaluated: **4**
-- PASS: **0**
-- FAIL: **4**
+- Checks evaluated: **7**
+- PASS: **2**
+- FAIL: **5**
 
 ## Findings
 
@@ -45,6 +45,33 @@
 - **Rationale:** One or more required logging sources do not meet the fictional organization's defined logging/retention policy.
 - **Affected:** DefenderAlerts: retention 30d < policy 90d
 - **Remediation:** Enable the required log sources and align configured retention with the organization's approved audit-retention policy.
+
+### PASS - SC.L2-3.13.16 - CUI confidentiality at rest - endpoint encryption signal
+
+- **NIST SP 800-171 Rev. 2:** 3.13.16
+- **Severity:** CRITICAL
+- **Evidence:** EV-SEC-2026-09-13 - Simulated Intune / Defender / Azure network export
+- **Rationale:** All in-scope sample devices have disk-encryption evidence.
+- **Affected:** None
+- **Remediation:** Continue monitoring encryption compliance and investigate configuration drift.
+
+### PASS - SI.L2-3.14.2 - Malicious code protection - endpoint protection signal
+
+- **NIST SP 800-171 Rev. 2:** 3.14.2
+- **Severity:** HIGH
+- **Evidence:** EV-SEC-2026-09-13 - Simulated Intune / Defender / Azure network export
+- **Rationale:** All in-scope sample devices report endpoint-protection enabled.
+- **Affected:** None
+- **Remediation:** Continue health monitoring, signature/platform updates, and exception review.
+
+### FAIL - SC.L2-3.13.1 - Boundary protection - public administrative exposure signal
+
+- **NIST SP 800-171 Rev. 2:** 3.13.1
+- **Severity:** CRITICAL
+- **Evidence:** EV-SEC-2026-09-13 - Simulated Intune / Defender / Azure network export
+- **Rationale:** Public inbound administrative exposure was identified in the sample network-rule evidence.
+- **Affected:** nsg-cui-admin: public inbound port 3389
+- **Remediation:** Remove direct public administrative exposure, use approved controlled administration paths, and document any time-bound exception with compensating controls.
 
 ## Human review required
 
