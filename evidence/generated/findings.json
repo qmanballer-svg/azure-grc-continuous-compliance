@@ -9,9 +9,7 @@
     "evidence_id": "EV-ID-2026-09-13",
     "evidence_source": "Simulated Microsoft Entra ID export",
     "rationale": "1 enabled account(s) are associated with non-active personnel.",
-    "affected_objects": [
-      "former.contractor@frdc.example"
-    ],
+    "affected_objects": ["former.contractor@frdc.example"],
     "remediation": "Disable or formally reauthorize the accounts, validate the identity lifecycle process, and preserve closure evidence."
   },
   {
@@ -24,9 +22,7 @@
     "evidence_id": "EV-ID-2026-09-13",
     "evidence_source": "Simulated Microsoft Entra ID export",
     "rationale": "1 privileged assignment(s) exceeded the fictional 30-day inactivity threshold.",
-    "affected_objects": [
-      "stale.admin@frdc.example"
-    ],
+    "affected_objects": ["stale.admin@frdc.example"],
     "remediation": "Review business need, remove unnecessary standing privilege, and document approval for any retained privileged access."
   },
   {
@@ -39,9 +35,7 @@
     "evidence_id": "EV-ID-2026-09-13",
     "evidence_source": "Simulated Microsoft Entra ID export",
     "rationale": "1 enabled privileged account(s) lack MFA registration evidence.",
-    "affected_objects": [
-      "daniel.ross@frdc.example"
-    ],
+    "affected_objects": ["daniel.ross@frdc.example"],
     "remediation": "Require MFA for the affected privileged accounts and verify enforcement through Conditional Access or equivalent controls."
   },
   {
@@ -54,9 +48,46 @@
     "evidence_id": "EV-AU-2026-09-13",
     "evidence_source": "Simulated Azure / Sentinel logging export",
     "rationale": "One or more required logging sources do not meet the fictional organization's defined logging/retention policy.",
-    "affected_objects": [
-      "DefenderAlerts: retention 30d < policy 90d"
-    ],
+    "affected_objects": ["DefenderAlerts: retention 30d < policy 90d"],
     "remediation": "Enable the required log sources and align configured retention with the organization's approved audit-retention policy."
+  },
+  {
+    "check_id": "endpoint_encryption",
+    "status": "PASS",
+    "cmmc": "SC.L2-3.13.16",
+    "nist_800_171_rev2": "3.13.16",
+    "title": "CUI confidentiality at rest - endpoint encryption signal",
+    "severity": "critical",
+    "evidence_id": "EV-SEC-2026-09-13",
+    "evidence_source": "Simulated Intune / Defender / Azure network export",
+    "rationale": "All in-scope sample devices have disk-encryption evidence.",
+    "affected_objects": [],
+    "remediation": "Continue monitoring encryption compliance and investigate configuration drift."
+  },
+  {
+    "check_id": "endpoint_protection",
+    "status": "PASS",
+    "cmmc": "SI.L2-3.14.2",
+    "nist_800_171_rev2": "3.14.2",
+    "title": "Malicious code protection - endpoint protection signal",
+    "severity": "high",
+    "evidence_id": "EV-SEC-2026-09-13",
+    "evidence_source": "Simulated Intune / Defender / Azure network export",
+    "rationale": "All in-scope sample devices report endpoint-protection enabled.",
+    "affected_objects": [],
+    "remediation": "Continue health monitoring, signature/platform updates, and exception review."
+  },
+  {
+    "check_id": "public_admin_exposure",
+    "status": "FAIL",
+    "cmmc": "SC.L2-3.13.1",
+    "nist_800_171_rev2": "3.13.1",
+    "title": "Boundary protection - public administrative exposure signal",
+    "severity": "critical",
+    "evidence_id": "EV-SEC-2026-09-13",
+    "evidence_source": "Simulated Intune / Defender / Azure network export",
+    "rationale": "Public inbound administrative exposure was identified in the sample network-rule evidence.",
+    "affected_objects": ["nsg-cui-admin: public inbound port 3389"],
+    "remediation": "Remove direct public administrative exposure, use approved controlled administration paths, and document any time-bound exception with compensating controls."
   }
 ]
