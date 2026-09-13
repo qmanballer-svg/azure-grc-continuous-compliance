@@ -1,0 +1,46 @@
+{
+  "evidence_id": "EV-ID-2026-09-13",
+  "source": "Simulated Microsoft Entra ID export",
+  "collected_at": "2026-09-13T15:45:00-04:00",
+  "policy": {
+    "privileged_inactivity_threshold_days": 30
+  },
+  "users": [
+    {
+      "user_principal_name": "aisha.khan@frdc.example",
+      "employment_status": "active",
+      "account_enabled": true,
+      "privileged": true,
+      "privileged_role": "Security Administrator",
+      "mfa_registered": true,
+      "days_since_privileged_use": 4
+    },
+    {
+      "user_principal_name": "daniel.ross@frdc.example",
+      "employment_status": "active",
+      "account_enabled": true,
+      "privileged": true,
+      "privileged_role": "Global Reader",
+      "mfa_registered": false,
+      "days_since_privileged_use": 12
+    },
+    {
+      "user_principal_name": "former.contractor@frdc.example",
+      "employment_status": "terminated",
+      "account_enabled": true,
+      "privileged": false,
+      "privileged_role": null,
+      "mfa_registered": true,
+      "days_since_privileged_use": null
+    },
+    {
+      "user_principal_name": "stale.admin@frdc.example",
+      "employment_status": "active",
+      "account_enabled": true,
+      "privileged": true,
+      "privileged_role": "Privileged Role Administrator",
+      "mfa_registered": true,
+      "days_since_privileged_use": 67
+    }
+  ]
+}
