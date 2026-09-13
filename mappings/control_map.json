@@ -1,0 +1,26 @@
+{
+  "authorized_account_status": {
+    "cmmc": "AC.L2-3.1.1",
+    "nist_800_171_rev2": "3.1.1",
+    "title": "Authorized system access",
+    "severity": "high"
+  },
+  "privileged_least_privilege": {
+    "cmmc": "AC.L2-3.1.5",
+    "nist_800_171_rev2": "3.1.5",
+    "title": "Least privilege for privileged access",
+    "severity": "high"
+  },
+  "privileged_mfa": {
+    "cmmc": "IA.L2-3.5.3",
+    "nist_800_171_rev2": "3.5.3",
+    "title": "Multifactor authentication",
+    "severity": "critical"
+  },
+  "audit_logging_retention": {
+    "cmmc": "AU.L2-3.3.1",
+    "nist_800_171_rev2": "3.3.1",
+    "title": "System auditing",
+    "severity": "high"
+  }
+}
