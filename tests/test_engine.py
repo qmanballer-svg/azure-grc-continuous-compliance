@@ -12,11 +12,12 @@ class ComplianceEngineTests(unittest.TestCase):
     def setUpClass(cls):
         cls.identity = json.loads((ROOT / "data/sample/identity_evidence.json").read_text())
         cls.audit = json.loads((ROOT / "data/sample/audit_evidence.json").read_text())
+        cls.security = json.loads((ROOT / "data/sample/security_evidence.json").read_text())
         cls.mappings = json.loads((ROOT / "mappings/control_map.json").read_text())
-        cls.findings = evaluate(cls.identity, cls.audit, cls.mappings)
+        cls.findings = evaluate(cls.identity, cls.audit, cls.security, cls.mappings)
 
-    def test_four_checks_run(self):
-        self.assertEqual(len(self.findings), 4)
+    def test_seven_checks_run(self):
+        self.assertEqual(len(self.findings), 7)
 
     def test_demo_has_expected_failures(self):
         failed = {f.check_id for f in self.findings if f.status == "FAIL"}
@@ -24,6 +25,12 @@ class ComplianceEngineTests(unittest.TestCase):
         self.assertIn("privileged_least_privilege", failed)
         self.assertIn("privileged_mfa", failed)
         self.assertIn("audit_logging_retention", failed)
+        self.assertIn("public_admin_exposure", failed)
+
+    def test_demo_has_expected_passes(self):
+        passed = {f.check_id for f in self.findings if f.status == "PASS"}
+        self.assertIn("endpoint_encryption", passed)
+        self.assertIn("endpoint_protection", passed)
 
     def test_control_ids_are_present(self):
         for finding in self.findings:
